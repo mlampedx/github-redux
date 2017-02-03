@@ -1,7 +1,7 @@
 {
   "name": "github-redux",
   "version": "0.1.0",
-  "description": "GitHub scraper application build with React, Redux, Node.js, and Express.",
+  "description": "GitHub scraper application build with React, React-Router, Redux, Node.js, and Express.",
   "main": "index.js",
   "scripts": {
     "test": "test",
