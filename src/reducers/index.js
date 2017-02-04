@@ -1,5 +1,5 @@
-import * as types from './../actions';
-import merge from 'ladash/merge';
+import * as types from './../actions/ActionTypes';
+import merge from 'lodash/merge';
 import paginate from './paginate';
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
@@ -30,7 +30,7 @@ const pagination = combineReducers({
     types: [
       types.STARRED_REQUEST,
       types.STARRED_SUCCESS,
-      types.STARRED_FAILURE
+      types.STARRED_FAILURE,
     ],
   }),
   stargazersByRepo: paginate({
