@@ -1,24 +1,24 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
-import Explore from './../components/Explore';
 import { resetErrorMessage } from './../actions';
+import { Explore } from './../components';
 
 class App extends Component {
-  static propTypes = {
-    errorMessage: PropTypes.string,
-    resetErrorMessage: PropTypes.func.isRequired,
-    inpurtValue: PropTypes.string.isRequired,
-    children: PropTypes.node,
-  }
+  // static propTypes = {
+  //   errorMessage: PropTypes.string,
+  //   resetErrorMessage: PropTypes.func.isRequired,
+  //   inpurtValue: PropTypes.string.isRequired,
+  //   children: PropTypes.node,
+  // }
 
-  handleDismissClick = (e) => {
+  handleDismissClick(e) {
     const { resetErrorMessage } = this.props;
     resetErrorMessage();
     e.preventDefault();
   }
 
-  handleChange = (nextValue) => {
+  handleChange(nextValue) {
     browserHistory.push(`/${nextValue}`);
   }
 
