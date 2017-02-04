@@ -1,6 +1,7 @@
 import union from 'lodash/union';
 
 const paginate = ({ types, mapActionToKey }) => {
+
   if (!Array.isArray(types) || types.length !== 3) {
     throw new Error('Expected types to be an array of three elements');
   }
@@ -11,7 +12,7 @@ const paginate = ({ types, mapActionToKey }) => {
     throw new Error('Expected mapActionToKey to be a function.');
   }
 
-  const requestType, successType, failureType = types;
+  const [ requestType, successType, failureType ] = types;
 
   const updatePagination = (state = {
     isFetching: false,
