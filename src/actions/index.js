@@ -1,4 +1,4 @@
-import { CALL_API, Schemas } from '../.middleware/API';
+import { CALL_API, Schemas } from './../middleware/API';
 import * as types from './ActionTypes';
 
 const fetchUser = (login) => ({
