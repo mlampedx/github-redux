@@ -4,7 +4,7 @@ import { loadRepo, loadStargazers } from './../actions';
 import {
   Repo,
   User,
-  List
+  List,
 } from './../components';
 
 const loadData = (props) => {
@@ -14,16 +14,16 @@ const loadData = (props) => {
 }
 
 class RepoPage extends Component {
-  static propTypes = {
-    repo: PropTypes.object,
-    fullName: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    owner: PropTypes.object,
-    stargazers: PropTypes.array.isRequired,
-    stargazersPagination: PropTypes.object,
-    loadRepo: PropTypes.func.isRequired,
-    loadStargazers: PropTypes.func.isRequired,
-  }
+  // static propTypes = {
+  //   repo: PropTypes.object,
+  //   fullName: PropTypes.string.isRequired,
+  //   name: PropTypes.string.isRequired,
+  //   owner: PropTypes.object,
+  //   stargazers: PropTypes.array.isRequired,
+  //   stargazersPagination: PropTypes.object,
+  //   loadRepo: PropTypes.func.isRequired,
+  //   loadStargazers: PropTypes.func.isRequired,
+  // }
 
   componentWillMount() {
     loadData(this.props);
@@ -35,7 +35,7 @@ class RepoPage extends Component {
     }
   }
 
-  handleLoadMoreClick = () => {
+  handleLoadMoreClick() {
     const { loadStargazers, fullName } = this.props;
     loadStargazers(fullName, true);
   }
