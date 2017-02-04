@@ -1,12 +1,12 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 const GITHUB_REPO = 'https://github.com/reactjs/redux';
 
-export default class Explore extends PureComponent {
-  static propTypes = {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-  }
+export default class Explore extends Component {
+  // static propTypes = {
+  //   value: PropTypes.string.isRequired,
+  //   onChange: PropTypes.func.isRequired,
+  // }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
@@ -14,21 +14,21 @@ export default class Explore extends PureComponent {
     }
   }
 
-  getInputValue = () => {
+  getInputValue() {
     return this.refs.input.value;
   }
 
-  setInputValue = (val) => {
+  setInputValue(val) {
     this.refs.input.value = val;
   }
 
-  handleKeyUp = (e) => {
+  handleKeyUp(e) {
     if (e.keyCode === 13) {
       this.handleGoClick();
     }
   }
 
-  handleGoClick = () => {
+  handleGoClick() {
     this.props.onChange(this.getInputValue());
   }
   
