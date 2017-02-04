@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const PATHS = {
-  app: './src/index.js',
+  app: './src/index.jsx',
   html: './src/index.html',
   dist: path.join(__dirname, 'dist'),
 };
