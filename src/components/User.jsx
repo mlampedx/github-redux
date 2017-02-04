@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import { Link } from 'react-router';
 
-const User = ({ user }) => {
+export default function User({ user }) {
   const { login, avatarUrl, name } = user;
 
   return (
@@ -23,10 +23,8 @@ const User = ({ user }) => {
 
 User.propTypes = {
   user: PropTypes.shape({
-    login: PropTypers.string.isRequired,
+    login: PropTypes.string.isRequired,
     avatarUrl: PropTypes.string.isRequired,
     name: PropTypes.string,
   }).isRequired,
 };
-
-export default User;
