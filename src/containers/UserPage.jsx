@@ -9,35 +9,36 @@ import {
 } from './../components';
 
 const loadData = ({ login, loadUser, loadStarred }) => {
+  console.log('loading data for UserPage')
   loadUser(login, [ 'name' ]);
   loadStarred(login);
 }
 
 class UserPage extends Component {
-  // static propTypes = {
-  //   login: PropTypes.string.isRequired,
-  //   user: PropTypes.object,
-  //   starredPagination: PropTypes.object,
-  //   starredRepos: PropTypes.array.isRequired,
-  //   loadUser: PropTypes.func.isRequired,
-  //   loadStarred: PropTypes.func.isRequired,
-  // }
+  static propTypes = {
+    login: PropTypes.string.isRequired,
+    user: PropTypes.object,
+    starredPagination: PropTypes.object,
+    starredRepos: PropTypes.array.isRequired,
+    loadUser: PropTypes.func.isRequired,
+    loadStarred: PropTypes.func.isRequired,
+  }
 
-  componentWillMount() {
+  componentWillMount = () => {
     loadData(this.props);  
   }
   
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps = (nextProps) => {
     if (nextProps.login !== this.props.login) {
       loadData(nextProps);
     } 
   }
 
-  handleLoadMoreClick() {
+  handleLoadMoreClick = () => {
     this.props.loadStarred(this.props.login, true);
   }
 
-  renderRepo([ repo, owner ]) {
+  renderRepo = ([ repo, owner ]) => {
     return (
       <Repo
         repo={repo}
@@ -47,7 +48,7 @@ class UserPage extends Component {
     );
   }
 
-  render() {
+  render = () => {
     const { user, login, starredRepos, starredRepoOwners, starredPagination } = this.props
     if (!user) {
       return <h1><i>Loading {login}{"'s profile..."}</i></h1>
