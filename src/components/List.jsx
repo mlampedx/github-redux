@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-export default function List({ 
+export const List = ({ 
   loadingLabel = 'Loading...',
   pageCount,
   renderItem,
@@ -8,9 +8,9 @@ export default function List({
   isFetching = true,
   onLoadMoreClick,
   nextPageUrl,
- }) {
+ }) => {
 
-  function renderLoadMore() {
+  renderLoadMore = () => {
     return (
       <button 
         style={{ fontSize: '150%' }}
