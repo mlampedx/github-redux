@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import { Link } from 'react-router';
 
-export default function User({ user }) {
+export const User = ({ user }) => {
   const { login, avatarUrl, name } = user;
 
   return (
