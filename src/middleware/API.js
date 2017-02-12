@@ -1,9 +1,9 @@
 import { normalize, schema } from 'normalizr';
 import { camelizeKeys } from 'humps';
-const API_ROOT = 'https://api.github.com';
+const API_ROOT = 'https://api.github.com/';
 
 const getNextPageUrl = response => {
-  const link = response.headers.get('link')
+  const link = response.headers.get('link');
   if (!link) { return null; }
 
   const nextLink = link.split(',').find(s => s.includes('rel="next"'));
