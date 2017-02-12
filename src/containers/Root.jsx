@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import routes from './../routes';
 
-export default function Root({ store, history }) {
+const Root = ({ store, history }) => {
   return (
     <Provider store={store}>
       <Router
@@ -18,3 +18,5 @@ Root.propTypes = {
   store: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
 }
+
+export default Root;
