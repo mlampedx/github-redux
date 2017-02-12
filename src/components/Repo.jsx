@@ -1,17 +1,17 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-export default function Repo({ repo, owner }) {
+export const Repo = ({ repo, owner }) => {
   const { login } = owner;
   const { name, description } = repo;
 
   return (
     <div className="Repo">
       <h3>
-        <Link to={`/${login}${name}`}>
+        <Link to={`/${login}/${name}`}>
           {name}
         </Link>
-        { 'by' }
+        { ' by ' }
         <Link to={`/${login}`}>
           {login}
         </Link>
