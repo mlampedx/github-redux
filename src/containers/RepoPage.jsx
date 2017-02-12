@@ -9,42 +9,42 @@ import {
 
 const loadData = (props) => {
   const { fullName, loadRepo, loadStargazers } = props;
-  loadRepo(fullName, ['description']);
-  loadStargazers(fullName);
+  loadRepo(fullName.replace('/', ''), ['description']);
+  loadStargazers(fullName.replace('/', ''));
 }
 
 class RepoPage extends Component {
-  // static propTypes = {
-  //   repo: PropTypes.object,
-  //   fullName: PropTypes.string.isRequired,
-  //   name: PropTypes.string.isRequired,
-  //   owner: PropTypes.object,
-  //   stargazers: PropTypes.array.isRequired,
-  //   stargazersPagination: PropTypes.object,
-  //   loadRepo: PropTypes.func.isRequired,
-  //   loadStargazers: PropTypes.func.isRequired,
-  // }
+  static propTypes = {
+    repo: PropTypes.object,
+    fullName: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    owner: PropTypes.object,
+    stargazers: PropTypes.array.isRequired,
+    stargazersPagination: PropTypes.object,
+    loadRepo: PropTypes.func.isRequired,
+    loadStargazers: PropTypes.func.isRequired,
+  }
 
-  componentWillMount() {
+  componentWillMount = () => {
     loadData(this.props);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps = (nextProps) => {
     if (nextProps.fullName !== this.props.fullName) {
       loadData(nextProps);
     }
   }
 
-  handleLoadMoreClick() {
+  handleLoadMoreClick = () => {
     const { loadStargazers, fullName } = this.props;
     loadStargazers(fullName, true);
   }
   
-  renderUser(user) {
+  renderUser = (user) => {
     return <User user={user} key={user.login} />
   }
 
-  render() {
+  render = () => {
     const { repo, owner, name } = this.props;
     if (!repo || !owner) {
       return <h1><i>Loading {name} details...</i></h1>;
