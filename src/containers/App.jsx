@@ -5,24 +5,24 @@ import { resetErrorMessage } from './../actions';
 import { Explore } from './../components';
 
 class App extends Component {
-  // static propTypes = {
-  //   errorMessage: PropTypes.string,
-  //   resetErrorMessage: PropTypes.func.isRequired,
-  //   inpurtValue: PropTypes.string.isRequired,
-  //   children: PropTypes.node,
-  // }
+  static propTypes = {
+    errorMessage: PropTypes.string,
+    resetErrorMessage: PropTypes.func.isRequired,
+    inputValue: PropTypes.string.isRequired,
+    children: PropTypes.node,
+  }
 
-  handleDismissClick(e) {
+  handleDismissClick = (e) => {
     const { resetErrorMessage } = this.props;
     resetErrorMessage();
     e.preventDefault();
   }
 
-  handleChange(nextValue) {
+  handleChange = (nextValue) => {
     browserHistory.push(`/${nextValue}`);
   }
 
-  renderErrorMessage() {
+  renderErrorMessage = () => {
     const { errorMessage } = this.props;
     if (!errorMessage) {
       return null;
@@ -43,7 +43,8 @@ class App extends Component {
     );
   }
 
-  render() {
+  render = () => {
+    console.log('props', this.props)
     const { children, inputValue } = this.props;
     return (
       <div>
