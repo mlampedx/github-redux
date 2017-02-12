@@ -3,36 +3,37 @@ import React, { Component, PropTypes } from 'react';
 const GITHUB_REPO = 'https://github.com/reactjs/redux';
 
 export default class Explore extends Component {
-  // static propTypes = {
-  //   value: PropTypes.string.isRequired,
-  //   onChange: PropTypes.func.isRequired,
-  // }
+  static propTypes = {
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+  }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps = (nextProps) => {
     if (nextProps.value !== this.props.value) {
       this.setInputValue(nextProps.value);
     }
   }
 
-  getInputValue() {
+  getInputValue = () => {
     return this.refs.input.value;
   }
 
-  setInputValue(val) {
+  setInputValue = (val) => {
     this.refs.input.value = val;
   }
 
-  handleKeyUp(e) {
+  handleKeyUp = (e) => {
     if (e.keyCode === 13) {
       this.handleGoClick();
     }
   }
 
-  handleGoClick() {
+  handleGoClick = () => {
+    console.log('handling go click')
     this.props.onChange(this.getInputValue());
   }
   
-  render() {
+  render = () => {
     return (
       <div>
         <p>Type a username or repo name and press 'Go':</p>
