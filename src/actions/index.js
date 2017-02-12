@@ -66,7 +66,7 @@ const fetchStargazers = (fullName, nextPageUrl) => ({
   }
 })
 
-export const loadStargazers = (fullName, nexPage) => (dispatch, getState) => {
+export const loadStargazers = (fullName, nextPage) => (dispatch, getState) => {
   const {
     nextPageUrl = `users/${login}/stargazers`,
     pageCount = 0
